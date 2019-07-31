@@ -10,7 +10,7 @@ Check them out: https://hperrin.github.io/svelte-material-ui/demo/
 
 ## Usage
 
-Here's some code:
+Here's some example code:
 
 ```html
 <Button>Just a Button</Button>
@@ -22,24 +22,37 @@ Here's some code:
   <Label>Extended FAB</Label>
 </Fab>
 
+<Textfield
+  bind:value={superText}
+  label="Super Text"
+  input$aria-controls="helper-text"
+  input$aria-describedby="helper-text"
+/>
+<div use:HelperLine>
+  <HelperText id="helper-text">What you put in this box will become super!</HelperText>
+</div>
+
 <script>
   import Button from 'svelte-material-ui/components/button';
   import Fab from 'svelte-material-ui/components/fab';
+  import Textfield, {HelperLine, HelperText} from '../components/textfield';
   import {Label, Icon} from 'svelte-material-ui/components/common';
+
+  let superText = '';
 </script>
 ```
 
-You can check out the demo pages to see usage, since I haven't written the documentation yet.
+You can check out the [demo pages' source](https://github.com/hperrin/svelte-material-ui/tree/master/demo) to see usage, since I haven't written the documentation yet.
 
 Here are some juicy features:
 
 * You can add any arbitrary property to nearly all of the components.
 * You can add actions to the components with `use={[Action1, [Action2, action2Props]]}`.
+* You can add props to lower components and elements with things like `input$maxlength="15"`.
 * Ripples are on by default on interactive components, and can be turned off with `ripple={false}`.
 * You can also add ripples to things with the Ripple Svelte action.
 * All standard UI events are forwarded on most components, and input events are forwarded on input components.
 * Things like labels and icons are named exports in each component, or you can use 'common/Label' and 'common/Icon'. (Except for textfield icon, because it is a special snowflake.)
-* I try very hard to keep you from having to write an actual HTML element or CSS class, so most things are done through Svelte components and properties, with actions being the last resort.
 
 To bundle this in your own code, you must use the `svelte-preprocess` package. See the webpack config in this package for an example.
 
