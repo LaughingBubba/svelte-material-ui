@@ -1,13 +1,13 @@
 {
   "name": "svelte-material-ui",
-  "version": "1.0.0-alpha.6",
+  "version": "1.0.0-alpha.7",
   "description": "Svelte Material UI Components",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
     "serve": "serve demo",
     "watch": "webpack --watch",
-    "pages": "git checkout gh-pages && git merge master && npm run build && git add . && git commit -m 'Update build files.' && git push origin gh-pages && git checkout master",
+    "pages": "git checkout gh-pages && git pull && git merge master && npm run build && git add . && git commit -m 'Update build files.' && git push origin gh-pages && git checkout master",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,16 +27,20 @@
     "@material/dialog": "^3.1.0",
     "@material/drawer": "^3.1.0",
     "@material/fab": "^3.1.0",
+    "@material/floating-label": "^3.1.0",
     "@material/form-field": "^3.1.0",
     "@material/icon-button": "^3.1.0",
+    "@material/line-ripple": "^3.1.0",
     "@material/linear-progress": "^3.1.0",
     "@material/list": "^3.1.0",
     "@material/menu": "^3.1.0",
     "@material/menu-surface": "^3.1.0",
+    "@material/notched-outline": "^3.1.0",
     "@material/radio": "^3.1.0",
     "@material/ripple": "^3.1.0",
     "@material/slider": "^3.1.0",
     "@material/switch": "^3.1.0",
+    "@material/textfield": "^3.1.0",
     "@material/typography": "^3.1.0"
   },
   "devDependencies": {
