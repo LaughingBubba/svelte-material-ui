@@ -42,6 +42,7 @@
     "@material/slider": "^3.1.0",
     "@material/switch": "^3.1.0",
     "@material/textfield": "^3.1.0",
+    "@material/theme": "^3.1.0",
     "@material/typography": "^3.1.0"
   },
   "devDependencies": {
@@ -56,6 +57,7 @@
     "svelte": "^3.6.9",
     "svelte-loader": "^2.13.6",
     "svelte-preprocess": "^2.15.0",
+    "svelte-spa-router": "^1.2.0",
     "webpack": "^4.38.0",
     "webpack-cli": "^3.3.6"
   }
