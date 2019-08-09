@@ -66,7 +66,6 @@ I'm only going to do things that need to/can be Svelte-ified. For some things, l
 - [ ] Data Tables
 - [x] Dialogs
 - [x] Drawers
-- [ ] Grid Lists
 - [ ] Image List
 - [x] Inputs and Controls
   - [x] Checkboxes
@@ -84,18 +83,17 @@ I'm only going to do things that need to/can be Svelte-ified. For some things, l
     - [x] Text Field Character Counter
     - [x] Text Field Helper Text
     - [x] Text Field Icon
-- [ ] Layout Grid
 - [x] Linear Progress
 - [x] Lists
 - [x] Menu Surface
 - [x] Menus
 - [x] Ripples
 - [ ] Snackbars
-- [ ] Tabs
-  - [ ] Tab
-  - [ ] Tab Bar
-  - [ ] Tab Indicator
-  - [ ] Tab Scroller
+- [x] Tabs
+  - [x] Tab
+  - [x] Tab Bar
+  - [x] Tab Indicator
+  - [x] Tab Scroller
 - [x] Theme
 - [x] Top App Bar
 - [x] Typography
