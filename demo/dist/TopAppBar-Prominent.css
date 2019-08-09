@@ -648,6 +648,17 @@
   text-decoration: none;
   text-transform: uppercase; }
 
+html {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.03125em;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
 h1 {
   font-family: Roboto, sans-serif;
   -moz-osx-font-smoothing: grayscale;
@@ -722,17 +733,6 @@ caption {
   line-height: 1.25rem;
   font-weight: 400;
   letter-spacing: 0.03333em;
-  text-decoration: inherit;
-  text-transform: inherit; }
-
-* {
-  font-family: Roboto, sans-serif;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: 400;
-  letter-spacing: 0.03125em;
   text-decoration: inherit;
   text-transform: inherit; }
 
