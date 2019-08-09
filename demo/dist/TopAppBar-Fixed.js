@@ -236,7 +236,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Rip
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return FixedAdjust; });\nfunction FixedAdjust(node) {\n  node.classList.add('mdc-top-app-bar--fixed-adjust');\n  return {\n    destroy: function destroy() {\n      node.classList.remove('mdc-top-app-bar--fixed-adjust');\n    }\n  };\n}\n\n//# sourceURL=webpack:///./components/top-app-bar/DenseFixedAdjust.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return DenseFixedAdjust; });\nfunction DenseFixedAdjust(node) {\n  node.classList.add('mdc-top-app-bar--dense-fixed-adjust');\n  return {\n    destroy: function destroy() {\n      node.classList.remove('mdc-top-app-bar--dense-fixed-adjust');\n    }\n  };\n}\n\n//# sourceURL=webpack:///./components/top-app-bar/DenseFixedAdjust.js?");
 
 /***/ }),
 
