@@ -9,12 +9,12 @@
 
 <script>
   import {getContext} from 'svelte';
-  import {exclude} from '../exclude';
-  import {useActions} from '../useActions';
+  import {exclude} from '../exclude.js';
+  import {useActions} from '../useActions.js';
 
   export let use = [];
   let className = '';
   export {className as class};
 
-  const context = getContext('SMUI:labelContext');
+  const context = getContext('SMUI:label:context');
 </script>

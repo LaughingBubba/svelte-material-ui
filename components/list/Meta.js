@@ -1,9 +1,12 @@
-export default function Meta(node) {
-  node.classList.add('mdc-list-item__meta');
+import ClassAdder, {internals} from '../common/ClassAdder.svelte';
+import Span from '../common/Span.svelte';
 
-  return {
-    destroy() {
-      node.classList.remove('mdc-list-item__meta');
-    }
-  }
+function Meta(...args) {
+  internals.smuiClass = 'mdc-list-item__meta';
+  internals.component = Span;
+  return new ClassAdder(...args);
 }
+
+Meta.prototype = ClassAdder;
+
+export default Meta;

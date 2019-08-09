@@ -1,5 +1,5 @@
 const path = require('path');
-const preprocess = require('svelte-preprocess');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const sassOptions = {
   includePaths: [
@@ -17,40 +17,47 @@ const sassOptions = {
 
 module.exports = {
   mode: 'development',
-  entry: [path.resolve(__dirname, 'demo', 'index.js')],
+  entry: {
+    bundle: path.resolve(__dirname, 'demo', 'index.js'),
+    'TopAppBar-Standard': path.resolve(__dirname, 'demo', 'component-demos', 'TopAppBar', 'standard.js'),
+    'TopAppBar-Fixed': path.resolve(__dirname, 'demo', 'component-demos', 'TopAppBar', 'fixed.js'),
+    'TopAppBar-Dense': path.resolve(__dirname, 'demo', 'component-demos', 'TopAppBar', 'dense.js'),
+    'TopAppBar-Prominent': path.resolve(__dirname, 'demo', 'component-demos', 'TopAppBar', 'prominent.js'),
+    'TopAppBar-Short': path.resolve(__dirname, 'demo', 'component-demos', 'TopAppBar', 'short.js'),
+    'TopAppBar-ShortClosed': path.resolve(__dirname, 'demo', 'component-demos', 'TopAppBar', 'shortclosed.js'),
+  },
   output: {
     path: path.resolve(__dirname, 'demo', 'dist'),
-    filename: 'bundle.js',
+    filename: '[name].js',
   },
   resolve: {
-    extensions: ['.mjs', '.js', '.json', '.html', '.svelte', '.css', '.scss'],
     alias: {
       // This is so the demo can import from 'svelte-material-ui'.
-      'svelte-material-ui': path.resolve(__dirname)
-    }
+      'svelte-material-ui': path.resolve(__dirname),
+    },
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[name].[id].css',
+    }),
+  ],
   module: {
     rules: [
       {
         test: /\.(html|svelte)$/,
-        use: {
-          loader: 'svelte-loader',
-          options: {
-            preprocess: preprocess({
-              scss: sassOptions
-            })
-          }
-        },
+        use: 'svelte-loader',
       },
       {
-        test: /\.s?css$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
-          {loader: 'style-loader'},
-          {loader: 'css-loader'},
+          'style-loader',
+          MiniCssExtractPlugin.loader,
+          'css-loader',
           {
             loader: 'sass-loader',
-            options: sassOptions
-          }
+            options: sassOptions,
+          },
         ],
       },
       {
@@ -59,10 +66,10 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
-      }
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
     ],
   },
 };

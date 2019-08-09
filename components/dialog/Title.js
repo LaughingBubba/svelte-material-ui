@@ -1,9 +1,12 @@
-export default function Title(node) {
-  node.classList.add('mdc-dialog__title');
+import ClassAdder, {internals} from '../common/ClassAdder.svelte';
+import H2 from '../common/H2.svelte';
 
-  return {
-    destroy() {
-      node.classList.remove('mdc-dialog__title');
-    }
-  }
+function Title(...args) {
+  internals.smuiClass = 'mdc-dialog__title';
+  internals.component = H2;
+  return new ClassAdder(...args);
 }
+
+Title.prototype = ClassAdder;
+
+export default Title;

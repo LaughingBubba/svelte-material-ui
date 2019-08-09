@@ -1,63 +1,74 @@
 <svelte:window on:resize={setMiniWindow} />
-<Drawer variant={miniWindow ? 'modal' : null} bind:open={drawerOpen}>
-  <div use:Header>
-    <a use:link href="/">
-      <h1 use:Title>Material Components</h1>
-    </a>
-  </div>
-  <div use:Content>
-    <List>
-      {#each sections as section}
-        <Item use={[link]} href={'key' in section ? '/'+section.key : ('shortcut' in section ? '/'+section.shortcut : undefined)} on:click={() => pickSection(section)} activated={'key' in section && $location === '/'+section.key} title={section.name} style="{section.indent ? 'margin-left: '+(section.indent * 25)+'px;' : ''}">
-          <span use:Text>{section.name}</span>
-        </Item>
-      {/each}
-    </List>
-  </div>
-</Drawer>
+<TopAppBar variant="static">
+  <Row>
+    <Section>
+      {#if miniWindow}
+        <IconButton class="material-icons" on:click={() => drawerOpen = !drawerOpen}>menu</IconButton>
+      {/if}
+      <a use:link href="/" style="color: inherit;">
+        <Title>Material Components</Title>
+      </a>
+    </Section>
+    <Section align="end" toolbar>
+      <Button href="https://github.com/hperrin/svelte-material-ui" style="color: white;">GitHub</Button>
+    </Section>
+  </Row>
+</TopAppBar>
+<div class="drawer-container">
+  <Drawer variant={miniWindow ? 'modal' : null} bind:open={drawerOpen}>
+    <Content>
+      <List>
+        {#each sections as section}
+          <Item use={[link]} href={'key' in section ? '/'+section.key : ('shortcut' in section ? '/'+section.shortcut : undefined)} on:click={() => pickSection(section)} activated={'key' in section && $location === '/'+section.key} title={section.name} style="{section.indent ? 'margin-left: '+(section.indent * 25)+'px;' : ''}">
+            <Text>{section.name}</Text>
+          </Item>
+        {/each}
+      </List>
+    </Content>
+  </Drawer>
 
-{#if miniWindow}
-  <div use:Scrim />
-{/if}
-<div use:AppContent class="app-content">
-  <main class="main-content" bind:this={mainContent}>
-    {#if miniWindow}
-      <div>
-        <IconButton on:click={() => drawerOpen = !drawerOpen}>menu</IconButton>
-      </div>
-    {/if}
-    <Router {routes} />
-  </main>
+  {#if miniWindow}
+    <Scrim />
+  {/if}
+  <AppContent class="demo-app-content">
+    <main bind:this={mainContent}>
+      <Router {routes} />
+    </main>
+  </AppContent>
 </div>
 
 <script>
   import {onMount} from 'svelte';
   import Router, {link, location} from 'svelte-spa-router';
-  import Drawer, {Header, Title, Content, Scrim, AppContent} from 'svelte-material-ui/components/drawer';
+  import './App.scss';
+  import TopAppBar, {Row, Section, Title} from 'svelte-material-ui/components/top-app-bar';
+  import Drawer, {Content, Scrim, AppContent} from 'svelte-material-ui/components/drawer';
+  import Button from 'svelte-material-ui/components/button';
   import IconButton from 'svelte-material-ui/components/icon-button';
   import List, {Item, Text} from 'svelte-material-ui/components/list';
 
-  import Home from './Home';
-  import DemoButton from './component-demos/Button';
-  import DemoFab from './component-demos/Fab';
-  import DemoIconButton from './component-demos/IconButton';
-  import DemoCard from './component-demos/Card';
-  import DemoChips from './component-demos/Chips';
-  import DemoDialog from './component-demos/Dialog';
-  import DemoDrawer from './component-demos/Drawer';
-  import DemoCheckbox from './component-demos/Checkbox';
-  import DemoRadio from './component-demos/Radio';
-  import DemoSelect from './component-demos/Select';
-  import DemoSlider from './component-demos/Slider';
-  import DemoSwitch from './component-demos/Switch';
-  import DemoTextfield from './component-demos/Textfield';
-  import DemoLinearProgress from './component-demos/LinearProgress';
-  import DemoList from './component-demos/List';
-  import DemoMenuSurface from './component-demos/MenuSurface';
-  import DemoMenu from './component-demos/Menu';
-  import DemoRipple from './component-demos/Ripple';
-  import DemoTheme from './component-demos/Theme';
-  import DemoTypography from './component-demos/Typography';
+  import Home from './Home.svelte';
+  import DemoButton from './component-demos/Button.svelte';
+  import DemoFab from './component-demos/Fab.svelte';
+  import DemoIconButton from './component-demos/IconButton.svelte';
+  import DemoCard from './component-demos/Card.svelte';
+  import DemoChips from './component-demos/Chips.svelte';
+  import DemoDialog from './component-demos/Dialog.svelte';
+  import DemoDrawer from './component-demos/Drawer.svelte';
+  import DemoCheckbox from './component-demos/Checkbox.svelte';
+  import DemoRadio from './component-demos/Radio.svelte';
+  import DemoSelect from './component-demos/Select.svelte';
+  import DemoSlider from './component-demos/Slider.svelte';
+  import DemoSwitch from './component-demos/Switch.svelte';
+  import DemoTextfield from './component-demos/Textfield.svelte';
+  import DemoLinearProgress from './component-demos/LinearProgress.svelte';
+  import DemoList from './component-demos/List.svelte';
+  import DemoMenuSurface from './component-demos/MenuSurface.svelte';
+  import DemoMenu from './component-demos/Menu.svelte';
+  import DemoRipple from './component-demos/Ripple.svelte';
+  import DemoTheme from './component-demos/Theme.svelte';
+  import DemoTopAppBar from './component-demos/TopAppBar.svelte';
+  import DemoTypography from './component-demos/Typography.svelte';
 
   let mainContent;
   let miniWindow = false;
@@ -229,6 +240,12 @@
       indent: 0
     },
     {
+      name: 'Top App Bar',
+      key: 'top-app-bar',
+      component: DemoTopAppBar,
+      indent: 0
+    },
+    {
       name: 'Typography',
       key: 'typography',
       component: DemoTypography,
@@ -258,88 +275,3 @@
     miniWindow = window.innerWidth < 720;
   }
 </script>
-
-<style lang="scss">
-  @import "svelte-material-ui/components/typography";
-
-  :global(body), :global(app) {
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-  }
-
-  .app-content {
-    flex: auto;
-    overflow: auto;
-    position: relative;
-  }
-
-  .main-content {
-    overflow: auto;
-    height: 100%;
-    display: flex;
-  }
-
-  .main-content :global(section) {
-    padding: 16px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  * :global(section > div) {
-    margin: 1em 0 .6em;
-  }
-
-  * :global(.status) {
-    font-family: monospace;
-    font-size: .9em;
-  }
-
-  :global(h1) {
-    @include mdc-typography('headline1');
-  }
-
-  :global(h2) {
-    @include mdc-typography('headline2');
-  }
-
-  :global(h3) {
-    @include mdc-typography('headline3');
-  }
-
-  :global(h4) {
-    @include mdc-typography('headline4');
-  }
-
-  :global(h5) {
-    @include mdc-typography('headline5');
-  }
-
-  :global(h6) {
-    @include mdc-typography('headline6');
-  }
-
-  :global(*) {
-    @include mdc-typography('body1');
-  }
-
-  :global(code, pre) {
-    font-family: 'Courier New', Courier, monospace;
-  }
-
-  :global(small) {
-    font-size: .9em;
-  }
-
-  :global(big) {
-    font-size: 1.1em;
-  }
-
-  :global(b, strong) {
-    font-weight: bold;
-  }
-
-  :global(caption) {
-    @include mdc-typography('caption');
-  }
-</style>

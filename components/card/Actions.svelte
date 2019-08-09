@@ -6,11 +6,15 @@
 ><slot></slot></div>
 
 <script>
-  import {exclude} from '../exclude';
-  import {useActions} from '../useActions';
+  import {setContext} from 'svelte';
+  import {exclude} from '../exclude.js';
+  import {useActions} from '../useActions.js';
 
   export let use = [];
   let className = '';
   export {className as class};
   export let fullBleed = false;
+
+  setContext('SMUI:button:context', 'card:action');
+  setContext('SMUI:icon-button:context', 'card:action');
 </script>

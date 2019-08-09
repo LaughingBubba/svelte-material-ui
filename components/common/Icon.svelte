@@ -3,8 +3,8 @@
   class="material-icons {className}"
   class:mdc-button__icon={context === 'button'}
   class:mdc-fab__icon={context === 'fab'}
-  class:mdc-icon-button__icon={context === 'iconButton'}
-  class:mdc-icon-button__icon--on={context === 'iconButton' && on}
+  class:mdc-icon-button__icon={context === 'icon-button'}
+  class:mdc-icon-button__icon--on={context === 'icon-button' && on}
   class:mdc-chip__icon={context === 'chips'}
   class:mdc-chip__icon--leading={context === 'chips' && leading}
   class:mdc-chip__icon--leading-hidden={context === 'chips' && leadingHidden}
@@ -15,8 +15,8 @@
 
 <script>
   import {getContext} from 'svelte';
-  import {exclude} from '../exclude';
-  import {useActions} from '../useActions';
+  import {exclude} from '../exclude.js';
+  import {useActions} from '../useActions.js';
 
   export let use = [];
   let className = '';
@@ -26,5 +26,5 @@
   export let leadingHidden = false;
   export let trailing = false;
 
-  const context = getContext('SMUI:iconContext');
+  const context = getContext('SMUI:icon:context');
 </script>

@@ -1,0 +1,97 @@
+//
+// MDC Typography
+//
+@import "@material/typography/mdc-typography";
+
+h1 {
+  @include mdc-typography('headline1');
+}
+
+h2 {
+  @include mdc-typography('headline2');
+}
+
+h3 {
+  @include mdc-typography('headline3');
+}
+
+h4 {
+  @include mdc-typography('headline4');
+}
+
+h5 {
+  @include mdc-typography('headline5');
+}
+
+h6 {
+  @include mdc-typography('headline6');
+}
+
+caption {
+  @include mdc-typography('caption');
+}
+
+* {
+  @include mdc-typography('body1');
+}
+
+code, pre {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+small {
+  font-size: .9em;
+}
+
+big {
+  font-size: 1.1em;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+
+//
+// Demo App Styles
+//
+body, app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.drawer-container {
+  flex-grow: 1;
+  flex-basis: 0;
+  height: 0;
+  display: flex;
+}
+
+.demo-app-content {
+  flex: auto;
+  overflow: auto;
+  position: relative;
+}
+
+main {
+  overflow: auto;
+  height: 100%;
+  display: flex;
+}
+
+main section {
+  padding: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+section > div {
+  margin: 1em 0 .6em;
+}
+
+.status {
+  font-family: monospace;
+  font-size: .9em;
+}

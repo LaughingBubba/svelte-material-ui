@@ -10,10 +10,10 @@
 
 <script>
   import {current_component} from 'svelte/internal';
-  import {forwardEventsBuilder} from '../forwardEvents';
-  import {exclude} from '../exclude';
-  import {useActions} from '../useActions';
-  import Ripple from '../ripple';
+  import {forwardEventsBuilder} from '../forwardEvents.js';
+  import {exclude} from '../exclude.js';
+  import {useActions} from '../useActions.js';
+  import Ripple from '../ripple/index.js';
 
   const forwardEvents = forwardEventsBuilder(current_component);
 
@@ -25,9 +25,3 @@
   export let padded = false;
   export let tabindex = '0';
 </script>
-
-<style>
-  .smui-card__primary-action--padded {
-    padding: 16px;
-  }
-</style>
