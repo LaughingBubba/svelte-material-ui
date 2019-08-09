@@ -748,11 +748,13 @@ big {
 b, strong {
   font-weight: bold; }
 
+html {
+  height: 100vh; }
+
 body, app {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100vw; }
+  height: 100%; }
 
 .drawer-container {
   flex-grow: 1;
