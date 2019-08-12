@@ -231,6 +231,45 @@
 .smui-top-app-bar--static {
   position: static; }
 
+.smui-top-app-bar--color-secondary {
+  background-color: #546e7a;
+  /* @alternate */
+  background-color: var(--mdc-theme-secondary, #546e7a);
+  color: white; }
+  .smui-top-app-bar--color-secondary .mdc-top-app-bar__action-item,
+  .smui-top-app-bar--color-secondary .mdc-top-app-bar__navigation-icon {
+    color: #fff;
+    /* @alternate */
+    color: var(--mdc-theme-on-secondary, #fff); }
+    .smui-top-app-bar--color-secondary .mdc-top-app-bar__action-item::before, .smui-top-app-bar--color-secondary .mdc-top-app-bar__action-item::after,
+    .smui-top-app-bar--color-secondary .mdc-top-app-bar__navigation-icon::before,
+    .smui-top-app-bar--color-secondary .mdc-top-app-bar__navigation-icon::after {
+      background-color: #fff; }
+      @supports not (-ms-ime-align: auto) {
+        .smui-top-app-bar--color-secondary .mdc-top-app-bar__action-item::before, .smui-top-app-bar--color-secondary .mdc-top-app-bar__action-item::after,
+        .smui-top-app-bar--color-secondary .mdc-top-app-bar__navigation-icon::before,
+        .smui-top-app-bar--color-secondary .mdc-top-app-bar__navigation-icon::after {
+          /* @alternate */
+          background-color: var(--mdc-theme-on-secondary, #fff); } }
+    .smui-top-app-bar--color-secondary .mdc-top-app-bar__action-item:hover::before,
+    .smui-top-app-bar--color-secondary .mdc-top-app-bar__navigation-icon:hover::before {
+      opacity: 0.08; }
+    .smui-top-app-bar--color-secondary .mdc-top-app-bar__action-item:not(.mdc-ripple-upgraded):focus::before, .smui-top-app-bar--color-secondary .mdc-top-app-bar__action-item.mdc-ripple-upgraded--background-focused::before,
+    .smui-top-app-bar--color-secondary .mdc-top-app-bar__navigation-icon:not(.mdc-ripple-upgraded):focus::before,
+    .smui-top-app-bar--color-secondary .mdc-top-app-bar__navigation-icon.mdc-ripple-upgraded--background-focused::before {
+      transition-duration: 75ms;
+      opacity: 0.24; }
+    .smui-top-app-bar--color-secondary .mdc-top-app-bar__action-item:not(.mdc-ripple-upgraded)::after,
+    .smui-top-app-bar--color-secondary .mdc-top-app-bar__navigation-icon:not(.mdc-ripple-upgraded)::after {
+      transition: opacity 150ms linear; }
+    .smui-top-app-bar--color-secondary .mdc-top-app-bar__action-item:not(.mdc-ripple-upgraded):active::after,
+    .smui-top-app-bar--color-secondary .mdc-top-app-bar__navigation-icon:not(.mdc-ripple-upgraded):active::after {
+      transition-duration: 75ms;
+      opacity: 0.24; }
+    .smui-top-app-bar--color-secondary .mdc-top-app-bar__action-item.mdc-ripple-upgraded,
+    .smui-top-app-bar--color-secondary .mdc-top-app-bar__navigation-icon.mdc-ripple-upgraded {
+      --mdc-ripple-fg-opacity: 0.24; }
+
 @keyframes mdc-ripple-fg-radius-in {
   from {
     animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
