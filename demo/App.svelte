@@ -54,6 +54,7 @@
   import DemoIconButton from './component-demos/IconButton.svelte';
   import DemoCard from './component-demos/Card.svelte';
   import DemoChips from './component-demos/Chips.svelte';
+  import DemoDataTable from './component-demos/DataTable.svelte';
   import DemoDialog from './component-demos/Dialog.svelte';
   import DemoDrawer from './component-demos/Drawer.svelte';
   import DemoElevation from './component-demos/Elevation.svelte';
@@ -110,6 +111,12 @@
       component: DemoChips,
       indent: 0
     },
+    // {
+    //   name: 'Data Tables',
+    //   key: 'data-table',
+    //   component: DemoDataTable,
+    //   indent: 0
+    // },
     {
       name: 'Dialogs',
       key: 'dialog',
